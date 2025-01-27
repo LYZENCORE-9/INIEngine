@@ -60,7 +60,6 @@ class dini_write {
 public:
     dini_write() {}
 
-    void WriteKey(char *filename, char *key);
     void WriteString(char *filename, char *key, char *value);
     void WriteInt(char *filename, char *key, int *value);
     void WriteFloat(char *filename, char *key, float *value);
@@ -71,26 +70,24 @@ public:
 
 class dini_read {
 public:
-    dini_read();
+    dini_read() { }
 
-    char ReadString(char filename[], char key[]);
-    int ReadInt(char filename[], char key[]);
-    float ReadFloat(char filename[], char key[]);
-    double ReadDouble(char filename[], char key[]);
-    bool ReadBool(char filename[], char key[]);
+    void ReadString(char *filename, char *key, char *value);
+    void ReadInt(char *filename, char *key, int *value);
+    void ReadFloat(char *filename, char *key, float *value);
+    void ReadBool(char *filename, char *key, bool *value);
 
-    ~dini_read();
+    ~dini_read() { }
 };
 
 class dini_content {
 public:
-    dini_content();
+    dini_content() { }
 
-    bool RemoveContent(char filename[], char key[]);
-    bool DeleteContent(char filename[], char key[]);
-    bool IsContentExists(char filename[], char key[]);
+    void CreateKey(char *filename, char *key);
+    void RemoveKey(char *filename, char *key);
 
-    ~dini_content();
+    ~dini_content() { }
 };
 
 }
